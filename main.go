@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	rh "github.com/harik8/todo-list-service/routehandler"
 	conf "github.com/harik8/todo-list-service/config"
+	rh "github.com/harik8/todo-list-service/routehandler"
 )
 
 func main() {

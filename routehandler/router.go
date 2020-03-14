@@ -1,8 +1,8 @@
 package routehandler
 
 import (
-	"log"
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"

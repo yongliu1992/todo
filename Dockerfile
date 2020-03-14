@@ -1,9 +1,9 @@
-FROM golang:1.13 as build
+FROM golang:1.14 as build
 
-LABEL HARI KARTHIGASU <hariprasad.karthigasu@gmail.com>
+MAINTAINER todo  <a3831524@126.com>
 
 WORKDIR /app
-
+ENV GOPROXY https://goproxy.io
 COPY ./go.mod ./go.sum ./
 
 COPY . .
