@@ -81,3 +81,10 @@ func GetTodosHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(t)
 	log.Println(t)
 }
+
+func GetHandler2(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+
+	w.Write([]byte(params["TID"]))
+	json.NewEncoder(w)
+}

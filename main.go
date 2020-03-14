@@ -11,13 +11,15 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/todo/", 		rh.AddTodoHandler).Methods("POST")
-	r.HandleFunc("/todo/", 		rh.GetTodosHandler).Methods("GET")
+	r.HandleFunc("/todo/", rh.AddTodoHandler).Methods("POST")
+	r.HandleFunc("/todo/", rh.GetTodosHandler).Methods("GET")
 	r.HandleFunc("/todo/{TID}", rh.GetTodoHandler).Methods("GET")
 	r.HandleFunc("/todo/{TID}", rh.UpdateTodoHandler).Methods("PUT")
 	r.HandleFunc("/todo/{TID}", rh.DeleteTodoHandler).Methods("DELETE")
-	log.Println("Starting ToDo Service........")
-	err := http.ListenAndServe(conf.TodoServiceIP + ":" + conf.TodoServicePort, r)
+	r.HandleFunc("/hand2/{TID}", rh.GetHandler2).Methods("GET")
+	log.Println("Starting ToDo Service........", conf.TodoServiceIP+":"+conf.TodoServicePort)
+	//err := http.ListenAndServe(conf.TodoServiceIP + ":" + conf.TodoServicePort, r)
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		panic(err)
 	}
