@@ -1,0 +1,13 @@
+# 请参考 https://help.aliyun.com/document_detail/59293.html 了解更多关于release文件的编写方式 
+
+# 构建源码语言类型
+code.language=golang1.12
+
+# 应用部署脚本
+deploy.appctl.path=deploy.sh
+
+# Docker镜像构建之后push的仓库地址
+docker.repo=registry.cn-zhangjiakou.aliyuncs.com/gocode/todo
+
+# 构建镜像地址
+build.image=registry.cn-zhangjiakou.aliyuncs.com/gocode/golang@sha256:7866a3428b229f9bb8aeaa437ed5cc3a4e5bf0b7c2ac534598fb6e40b6c6088d
