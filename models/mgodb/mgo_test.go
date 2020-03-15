@@ -16,7 +16,6 @@ func TestMgo_InsertOne(t *testing.T) {
 		Labels: "日拱一卒",
 		Comments: "书中自有颜如玉，书中自有黄金屋，与高尚快乐作伴",
 		Uid: 1,
-
 	}
 	inResult, err := mgo.InsertOne(data)
 	if err != nil {
@@ -85,11 +84,13 @@ func TestMgo_Update(t *testing.T) {
 		t.Log("err", err)
 		t.Fail()
 	}
+	data2 := Todo.
 	data.Uid = 2
 	data.Task = "学习至上"
 	data.DueDate = "every day is first day"
 	data.Labels = "滴水穿石"
 	data.Comments = "将军府"
+
 	err = mgo.Update(inResult.InsertedID,data)
 	fmt.Println("update has err === ",err)
 	if err != nil {

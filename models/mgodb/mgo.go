@@ -15,15 +15,7 @@ type mgo struct {
 	database   string
 	collection string
 }
-type TodoSub struct {
-	Task     string `json:"task" bson:"task"`
-	DueDate  string `json:"due_date" bson:"dueDate"`
-	Labels   string `json:"labels" bson:"labels"`
-	Comments string `json:"comments" bson:"comments"`
-	Uid      int    `json:"uid" bson:"uid"`
-	CreateTime string `json:"create_date" bson:"createDate"`
-	UpdateTime string `json:"updateDate" bson:"updateDate"`
-}
+
 type Todo struct {
 	Task     string `json:"task" bson:"task"`
 	DueDate  string `json:"due_date" bson:"dueDate"`
@@ -32,7 +24,7 @@ type Todo struct {
 	Uid      int    `json:"uid" bson:"uid"`
 	CreateTime string `json:"create_date" bson:"createDate"`
 	UpdateTime string `json:"updateDate" bson:"updateDate"`
-	Id string `json:"id" bson:"_id"`
+	Id string `json:"id" bson:"_id,omitempty"`
 }
 
 func init() {

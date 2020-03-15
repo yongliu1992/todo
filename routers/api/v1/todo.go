@@ -53,7 +53,7 @@ func Add(c *gin.Context) {
 	DueDate := c.PostForm("endDate")
 	Labels := c.PostForm("label")
 	Comment := c.PostForm("comm")
-	data := mgodb.TodoSub{
+	data := mgodb.Todo{
 		Task:       task,
 		DueDate:    DueDate,
 		Labels:     Labels,

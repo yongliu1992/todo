@@ -28,6 +28,6 @@ func main() {
 		util.Setup()
 		logger.SetLevel(logrus.ErrorLevel)
 		r := routers.InitRouter()
-		r.Run(":8080")
+		r.Run("127.0.0.1:8080")
 	}
 }

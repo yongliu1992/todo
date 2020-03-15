@@ -20,20 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62e55cf5-853f-41a4-a6a4-4f325188cf47" name="Default Changelist" comment="调整main">
-      <change afterPath="$PROJECT_DIR$/models/mgodb/mgo_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/api/v1/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile.Release" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile.Release" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbconnector/connector.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbexecutor/executor.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routehandler/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routehandler/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/todo.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/mgodb/mgo_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mgodb/mgo_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routehandler/router.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +181,31 @@
             </State>
           </value>
         </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -203,6 +216,7 @@
     <option name="OPEN_GENERIC_TABS">
       <map>
         <entry key="1" value="TOOL_WINDOW" />
+        <entry key="2" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
@@ -250,10 +264,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="100" y="100" width="2360" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584272607059" />
-    <state x="833" y="259" width="894" height="921" key="find.popup" timestamp="1584270682443">
+    <state x="833" y="259" width="894" height="921" key="find.popup" timestamp="1584277880763">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="833" y="259" width="894" height="921" key="find.popup/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584270682443" />
+    <state x="833" y="259" width="894" height="921" key="find.popup/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584277880763" />
     <state x="833" y="259" width="894" height="921" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1584174397138" />
     <state x="844" y="324" width="872" height="1032" key="search.everywhere.popup" timestamp="1584259924262">
       <screen x="0" y="0" width="2560" height="1440" />
