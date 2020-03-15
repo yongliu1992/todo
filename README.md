@@ -8,15 +8,16 @@ Todo List Service is a GO API service which serves Todo data.
 ```
 curl -X POST -H "Content-Type: application/json" -d '{                                                                                           
   "task": "Fix bug 130320",
-  "duedate": "2020-03-20",
+  "endDate": "2020-03-20",
   "labels": "Dev",
-  "comments": "In progress"
-}' http://127.0.0.1:8080/todo/
+  "comm": "In progress"
+  "uid":1,
+}' http://127.0.0.1:8080/api/v1/todo/
 ```
 
 - Update a Todo task
 ```
-curl -X PUT -H "Content-Type: application/json" -d '{
+curl -X PUT -H "Content-Type: application/json" -d ~~'{~~
   "task": "Fix bug 130320",
   "duedate": "2020-03-20",
   "labels": "QA",

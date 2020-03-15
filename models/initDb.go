@@ -25,18 +25,11 @@ func Init() {
 
 // 连接设置
 func SetConnect() *mongo.Client {
-	//MongoURI = "mongodb://" + MongoUsername + ":" + MongoPassword + "@" + MongoHost + ":" + MongoPort
-	//"mongodb://" + MongoUsername + ":" + MongoPassword + "@" + MongoHost + ":" + MongoPort
-	//mongodb+srv://monogo:a3831524@cluster0-wtk9c.mongodb.net/test?retryWrites=true&w=majority
 	pwd := os.Getenv("MONGO_PASSWORD")
 	user := os.Getenv("MONGO_USERNAME")
 	host := os.Getenv("MONGO_HOST")
-	user= "monogo"
-	pwd = "a3831524"
-	host = "cluster0-wtk9c.mongodb.net"
-	uri := "mongodb+srv://%s:%s@%s"
+	uri := "mongodb+srv://%s:%s@%s" //此处根据实际替换
 	uri = fmt.Sprintf(uri,user,pwd,host)
-	fmt.Println("url",uri)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri).SetMaxPoolSize(20)) // 连接池

@@ -12,9 +12,9 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Recovery())
 	apiV1 := r.Group("/api/v1/")
 	apiV1.GET("todo/index", v1.Finds)
-	apiV1.POST("todo/update", v1.Update)
-	apiV1.POST("todo/delete", v1.Delete)
-	apiV1.POST("todo/save", v1.Add)
+	apiV1.PUT("todo/:id", v1.Update)
+	apiV1.DELETE("todo/delete", v1.Delete)
+	apiV1.POST("todo", v1.Add)
 	return r
 }
 

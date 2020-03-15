@@ -6,6 +6,7 @@ import (
 	"github.com/yongliu1992/todo/config"
 	"github.com/yongliu1992/todo/models/mgodb"
 	"github.com/yongliu1992/todo/pkg/e"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"time"
 )
@@ -15,14 +16,14 @@ var coll = config.MongoCollection
 
 func Delete(c *gin.Context) {
 	g := Gin{C: c}
-	uid := g.PostInt("uid")
+	uid := g.GetInt("uid")
 	mgo := mgodb.NewMgo(dbName, coll)
-	if uid < 1 {
+	keyName := c.Query("key")
+	value := c.Query("value")
+	if uid < 1 || keyName == "" || value == "" {
 		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
 		return
 	}
-	keyName := c.PostForm("key")
-	value := c.PostForm("value")
 	var rows int64
 	if keyName == "uid"{
 		rows = mgo.DeleteMany(keyName, uid)
@@ -30,15 +31,44 @@ func Delete(c *gin.Context) {
 		rows = mgo.DeleteMany(keyName, value)
 	}
 
-
 	res := make(map[string]interface{}, 1)
 	res["data"] = rows
 	g.Response(e.SUCCESS, res)
-
 }
 
 func Update(c *gin.Context) {
-
+	g := Gin{C: c}
+	uid := g.PostInt("uid")
+	id := c.Param("id")
+	mgo := mgodb.NewMgo(dbName, coll)
+	if uid < 1 {
+		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
+		return
+	}
+	task := c.PostForm("task")
+	DueDate := c.PostForm("endDate")
+	Labels := c.PostForm("label")
+	Comment := c.PostForm("comm")
+	status := g.PostInt("status")
+	data := mgodb.Todo{
+		Task:       task,
+		DueDate:    DueDate,
+		Labels:     Labels,
+		Comments:   Comment,
+		Uid:        uid,
+		UpdateTime: time.Now().Format("2006-01-02 15:04:05"),
+		Status: status,
+	}
+	tid,_ := primitive.ObjectIDFromHex(id)
+	err := mgo.Update(tid,data)
+	if err != nil {
+		fmt.Println("error", err)
+		g.Response(e.ERROR, map[string]interface{}{"err": err})
+	} else {
+		res := make(map[string]interface{}, 1)
+		res["err"] = ""
+		g.Response(e.SUCCESS, res)
+	}
 }
 
 func Add(c *gin.Context) {
@@ -53,6 +83,7 @@ func Add(c *gin.Context) {
 	DueDate := c.PostForm("endDate")
 	Labels := c.PostForm("label")
 	Comment := c.PostForm("comm")
+	status := g.PostInt("status")
 	data := mgodb.Todo{
 		Task:       task,
 		DueDate:    DueDate,
@@ -61,6 +92,7 @@ func Add(c *gin.Context) {
 		Uid:        uid,
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 		UpdateTime: "",
+		Status: status,
 	}
 	dataS, err := mgo.InsertOne(data)
 	if err != nil {
