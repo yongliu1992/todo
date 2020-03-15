@@ -84,7 +84,7 @@ func TestMgo_Update(t *testing.T) {
 		t.Log("err", err)
 		t.Fail()
 	}
-	data2 := Todo.
+
 	data.Uid = 2
 	data.Task = "学习至上"
 	data.DueDate = "every day is first day"

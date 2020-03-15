@@ -25,6 +25,7 @@ type Todo struct {
 	CreateTime string `json:"create_date" bson:"createDate"`
 	UpdateTime string `json:"updateDate" bson:"updateDate"`
 	Id string `json:"id" bson:"_id,omitempty"`
+	Status int `json:"status" bson:"status"` //1代表已完成
 }
 
 func init() {
@@ -101,6 +102,8 @@ func (m *mgo) Update(id interface{}, t Todo) (err error) {
 		primitive.E{Key: "labels", Value: t.Labels},
 		primitive.E{Key: "comments", Value: t.Comments},
 		primitive.E{Key: "uid", Value: t.Uid},
+		primitive.E{Key: "updateDate",Value: t.UpdateTime},
+		primitive.E{Key: "status",Value: t.Status},
 	}}}
 	err = collection.FindOneAndUpdate(context.TODO(), filter, set).Decode(&t)
 	return
