@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 String image    = env.JOB_NAME.split('/')[1].toLowerCase()
-String registry = "harik8/$image"
+String registry = "yongliu1992/$image"
 String tag      = env.VERSION
 
 pipeline {

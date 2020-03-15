@@ -1,26 +1,33 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
-	"github.com/gorilla/mux"
-	conf "github.com/harik8/todo-list-service/config"
-	rh "github.com/harik8/todo-list-service/routehandler"
+	"flag"
+	"fmt"
+	"github.com/sirupsen/logrus"
+	"github.com/yongliu1992/todo/lib"
+	"github.com/yongliu1992/todo/pkg/util"
+	"github.com/yongliu1992/todo/routers"
 )
 
+var _version_ = ""
+var _branch_ = ""
+var _commitId_ = ""
+var _userName_ = ""
+var _buildTime_ = ""
+
+var logger = lib.GetLogInstance()
+
 func main() {
-	r := mux.NewRouter()
-	r.HandleFunc("/todo/", rh.AddTodoHandler).Methods("POST")
-	r.HandleFunc("/todo/", rh.GetTodosHandler).Methods("GET")
-	r.HandleFunc("/todo/{TID}", rh.GetTodoHandler).Methods("GET")
-	r.HandleFunc("/todo/{TID}", rh.UpdateTodoHandler).Methods("PUT")
-	r.HandleFunc("/todo/{TID}", rh.DeleteTodoHandler).Methods("DELETE")
-	r.HandleFunc("/hand2/{TID}", rh.GetHandler2).Methods("GET")
-	log.Println("Starting ToDo Service........", conf.TodoServiceIP+":"+conf.TodoServicePort)
-	//err := http.ListenAndServe(conf.TodoServiceIP + ":" + conf.TodoServicePort, r)
-	err := http.ListenAndServe(":8080", r)
-	if err != nil {
-		panic(err)
+	var version bool
+	flag.BoolVar(&version, "v", false, "-v")
+	flag.Parse()
+
+	if version {
+		fmt.Printf("Version: %s, Branch: %s, Build: %s, User: %s, Build time: %s\n", _version_, _branch_, _commitId_, _userName_, _buildTime_)
+	} else {
+		util.Setup()
+		logger.SetLevel(logrus.ErrorLevel)
+		r := routers.InitRouter()
+		r.Run(":8080")
 	}
 }

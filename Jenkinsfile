@@ -1,7 +1,7 @@
 // todo
 
 String image    = env.JOB_NAME.split('/')[1].toLowerCase()
-String registry = "harik8/$image"
+String registry = "yongliu1992/$image"
 String tag      = "latest"
 
 pipeline {
@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage("publish") {
             steps {
-                container(name: 'kaniko', shell: '/busybox/sh') {
+                container(name: 'yongliu1992', shell: '/busybox/sh') {
                      withEnv(['PATH+EXTRA=/busybox:/kaniko']) {
                       sh """#!/busybox/sh
                         /kaniko/executor --context=$workspace --destination $registry:$tag

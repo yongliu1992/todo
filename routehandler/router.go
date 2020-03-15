@@ -2,14 +2,12 @@ package routehandler
 
 import (
 	"encoding/json"
+	"github.com/gorilla/mux"
+	exec "github.com/yongliu1992/todo/dbexecutor"
+	todo "github.com/yongliu1992/todo/todo"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"log"
 	"net/http"
-
-	"github.com/gorilla/mux"
-	"go.mongodb.org/mongo-driver/bson/primitive"
-
-	exec "github.com/harik8/todo-list-service/dbexecutor"
-	todo "github.com/harik8/todo-list-service/todo"
 )
 
 // AddTodoHandler : Handler to add a todo
