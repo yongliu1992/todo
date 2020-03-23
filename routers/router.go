@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	v1 "github.com/yongliu1992/todo/routers/api/v1"
+	."github.com/yongliu1992/todo/routers/api"
 )
 
 // InitRouter initialize routing information
@@ -11,10 +11,11 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 	apiV1 := r.Group("/api/v1/")
-	apiV1.GET("todo/index", v1.Finds)
-	apiV1.PUT("todo/:id", v1.Update)
-	apiV1.DELETE("todo/delete", v1.Delete)
-	apiV1.POST("todo", v1.Add)
+	apiV1.GET("todo/:uid", FindsTodo)
+	apiV1.GET("todoOne/:id", FindOneTodo)
+	apiV1.PUT("todo/:id", UpdateTodo)
+	apiV1.DELETE("todo/delete/:uid", DeleteTodo)
+	apiV1.POST("todo/:uid", AddTodo)
 	return r
 }
 
