@@ -1,17 +1,13 @@
 module github.com/yongliu1992/todo
 
-go 1.13
+go 1.14
 
 require (
-	github.com/360EntSecGroup-Skylar/excelize/v2 v2.1.0
-	github.com/QcloudApi/qcloud_sign_golang v0.0.0-20141224014652-e4130a326409
-	github.com/astaxie/beego v1.12.1
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/gin-gonic/gin v1.5.0
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/golang/protobuf v1.3.5 // indirect
-	github.com/gorilla/mux v1.7.4
 	github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 // indirect
 	github.com/jonboulle/clockwork v0.1.0 // indirect
 	github.com/json-iterator/go v1.1.9 // indirect
@@ -24,12 +20,10 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/sirupsen/logrus v1.4.2
+	github.com/stretchr/testify v1.4.0
 	github.com/tebeka/strftime v0.1.3 // indirect
-	github.com/tencentyun/cos-go-sdk-v5 v0.0.0-20200311031902-5eb2ce1f587d
 	go.mongodb.org/mongo-driver v1.3.1
 	golang.org/x/sys v0.0.0-20200302150141-5c8b2ff67527 // indirect
 	gopkg.in/go-playground/validator.v9 v9.31.0 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
-
-replace github.com/yongliu1992/todo => /Users/kok/go/src/yongliu/todo
