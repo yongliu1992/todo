@@ -1,7 +1,7 @@
 GO ?= go
 GOFMT ?= gofmt "-s"
 PACKAGES ?= $(shell $(GO) list ./...)
-VETPACKAGES ?= $(shell $(GO) list ./... | grep -v /examples/)
+VETPACKAGES ?= $(shell $(GO) list ./... | grep -v /config/)
 GOFILES := $(shell find . -name "*.go")
 TESTFOLDER := $(shell $(GO) list ./... | grep -E 'models$$|routers$$' | grep -v config)
 TESTTAGS ?= ""
