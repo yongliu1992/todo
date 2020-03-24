@@ -1,5 +1,7 @@
 # todo-list-service
 
+[![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Todo List Service is a GO API service which serves Todo data.
 
 # Requests 
