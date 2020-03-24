@@ -17,6 +17,7 @@ var _buildTime_ = ""
 
 var logger = lib.GetLogInstance()
 
+/*TODO: Need front-end UI to make a beautiful product */
 func main() {
 	var version bool
 	flag.BoolVar(&version, "v", false, "-v")

@@ -1,6 +1,11 @@
 # todo-list-service
-[![Build Status](https://travis-ci.com/yongliu1992/todo.svg?branch=master)](https://travis-ci.com/yongliu1992/todo) [![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+[![Build Status](https://travis-ci.com/yongliu1992/todo.svg?branch=master)](https://travis-ci.com/yongliu1992/todo)
+[![codecov](https://codecov.io/gh/yongliu1992/todo/branch/master/graph/badge.svg)](https://codecov.io/gh/yongliu1992/todo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yongliu1992/todo)](https://goreportcard.com/report/github.com/yongliu1992/todo)
+[![Open Source Helpers](https://www.codetriage.com/yongliu1992/todo/badges/users.svg)](https://www.codetriage.com/yongliu1992/todo)
+[![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yongliu1992/todo)](https://goreportcard.com/report/github.com/yongliu1992/todo)
+[![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/yongliu1992/todo)](https://www.tickgit.com/browse?repo=github.com/yongliu1992/todo)
 Todo List Service is a GO API service which serves Todo data.
 
 # Requests 
@@ -39,23 +44,3 @@ curl -X GET -H "Content-Type: application/json"     http://127.0.0.1:8080/todo/{
 - Delete a specific Todo task
 ```
 curl -X DELETE -H "Content-Type: application/json"  http://127.0.0.1:8080/todo/{TID}
-```
-
-# Docker
-
-`docker pull harik8/todo:v1.0.0`
-
-# Local Run
-
-- Install [kind](https://github.com/kubernetes-sigs/kind)
-
-- ```kind create cluster```
-- ```kubectl create ns mongodb```
-- ```kubectl create ns todo```
-- ```helm install mongodb stable/mongodb -n mongodb```
-- ```export MONGODB_ROOT_PASSWORD=$$(kubectl get secret --namespace mongodb mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 --decode)```
-- ```kubectl create secret generic mongo-cred --from-literal=MONGO_PASSWORD=${MONGODB_ROOT_PASSWORD} -n todo```
-- ```git clone https://github.com/harik8/sg-kube-deployer.git```
-- ```cd sg-kube-deployer```
-- ```kubectl apply -f manifests/todo/```
-- ```kubectl port-forward po/<todo_pod_name> -n todo 8080:8080```
