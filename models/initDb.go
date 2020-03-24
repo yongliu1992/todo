@@ -30,7 +30,7 @@ func SetConnect() *mongo.Client {
 	MongoUsername := os.Getenv("MONGO_USERNAME")
 	MongoPassword := os.Getenv("MONGO_PASSWORD")
 	//uri := "mongodb://root:root@localhost:27017/"
-	uri := "mongodb://%s:%s@%s:%s/"
+	uri := "mongodb://%s:%s@%s:%s/mydb_test?gssapiServiceName=mongodb"
 	uri = fmt.Sprintf(uri, MongoUsername, MongoPassword, MongoHost, MongoPort)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
