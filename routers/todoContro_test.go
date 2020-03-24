@@ -100,7 +100,7 @@ func TestDeleteTodo(t *testing.T) {
 }
 
 func TestUpdateRule(t *testing.T) {
-	time.Sleep(3*time.Second)
+	time.Sleep(3 * time.Second)
 	//等待数据被添加完成
 	apiUrl := "/api/v1/todo/1?sort=1"
 	data := Get(apiUrl, router)
