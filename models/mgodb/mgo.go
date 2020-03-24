@@ -73,6 +73,7 @@ func (m *mgo) Delete(key string, value interface{}) int64 {
 	if err != nil {
 		fmt.Println(err)
 		log.Print(err)
+		return  0
 	}
 	return count.DeletedCount
 }

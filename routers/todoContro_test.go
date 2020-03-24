@@ -94,8 +94,9 @@ func TestDeleteTodo(t *testing.T) {
 	err = json.Unmarshal(data, &res)
 	assert.Nil(t, err, err)
 	lastIndex = len(res.Data.Data)
-	assert.NotEqual(t, lastTask, res.Data.Data[lastIndex-1].Task)
-
+	if lastIndex > 0 {
+		assert.NotEqual(t, lastTask, res.Data.Data[lastIndex-1].Task)
+	}
 }
 
 func TestUpdateRule(t *testing.T) {
