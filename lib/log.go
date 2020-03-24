@@ -30,7 +30,7 @@ func GetLogInstance() *logrus.Logger {
 	baseLogPath := path.Join(con.LogPath, con.LogFileName)
 	writer, _ := rotatelogs.New(
 		baseLogPath+".%Y%m%d%H%M",
-		rotatelogs.WithLinkName(baseLogPath),               // 生成软链，指向最新日志文件
+		rotatelogs.WithLinkName(baseLogPath),              // 生成软链，指向最新日志文件
 		rotatelogs.WithMaxAge(durationMaxAge),             // 文件最大保存时间
 		rotatelogs.WithRotationTime(durationRotationTime), // 日志切割时间间隔
 	)

@@ -17,7 +17,7 @@ var coll = config.MongoCollection
 
 func DeleteTodo(c *gin.Context) {
 	g := Gin{C: c}
-	uid,_ := strconv.Atoi(c.Param("uid"))
+	uid, _ := strconv.Atoi(c.Param("uid"))
 	mgo := mgodb.NewMgo(dbName, coll)
 	keyName := c.Query("key")
 	value := c.Query("value")
@@ -26,9 +26,9 @@ func DeleteTodo(c *gin.Context) {
 		return
 	}
 	var rows int64
-	if keyName == "uid"{
+	if keyName == "uid" {
 		rows = mgo.DeleteMany(keyName, uid)
-	}else {
+	} else {
 		rows = mgo.DeleteMany(keyName, value)
 	}
 	g.Response(e.SUCCESS, rows)
@@ -55,10 +55,10 @@ func UpdateTodo(c *gin.Context) {
 		Comments:   Comment,
 		Uid:        uid,
 		UpdateTime: time.Now().Format("2006-01-02 15:04:05"),
-		Status: status,
+		Status:     status,
 	}
-	tid,_ := primitive.ObjectIDFromHex(id)
-	err := mgo.Update(tid,data)
+	tid, _ := primitive.ObjectIDFromHex(id)
+	err := mgo.Update(tid, data)
 	if err != nil {
 		fmt.Println("error", err)
 		g.Response(e.ERROR, map[string]interface{}{"err": err})
@@ -69,7 +69,7 @@ func UpdateTodo(c *gin.Context) {
 
 func AddTodo(c *gin.Context) {
 	g := Gin{C: c}
-	uid ,_:= strconv.Atoi(c.Param("uid"))
+	uid, _ := strconv.Atoi(c.Param("uid"))
 	mgo := mgodb.NewMgo(dbName, coll)
 	if uid < 1 {
 		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
@@ -88,7 +88,7 @@ func AddTodo(c *gin.Context) {
 		Uid:        uid,
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 		UpdateTime: "",
-		Status: status,
+		Status:     status,
 	}
 	dataS, err := mgo.InsertOne(data)
 	if err != nil {
@@ -110,7 +110,7 @@ func AddTodo(c *gin.Context) {
  */
 func FindsTodo(c *gin.Context) {
 	g := Gin{C: c}
-	uid,_ := strconv.Atoi(c.Param("uid"))
+	uid, _ := strconv.Atoi(c.Param("uid"))
 	sort := g.GetInt("sort")
 	if uid < 1 {
 		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
@@ -150,19 +150,19 @@ func FindsTodo(c *gin.Context) {
 func FindOneTodo(c *gin.Context) {
 	g := Gin{C: c}
 	id := c.Param("id")
-	if id ==""{
+	if id == "" {
 		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
 		return
 	}
 	mgo := mgodb.NewMgo(dbName, coll)
-	tid,_ := primitive.ObjectIDFromHex(id)
+	tid, _ := primitive.ObjectIDFromHex(id)
 	dataS, err := mgo.FindOne(tid)
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
 			g.Response(e.SUCCESS, map[string]interface{}{})
 			return
 		}
-		g.Response(e.ERROR,map[string]interface{}{})
+		g.Response(e.ERROR, map[string]interface{}{})
 	} else {
 
 		g.Response(e.SUCCESS, dataS)

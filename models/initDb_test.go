@@ -8,12 +8,12 @@ import (
 
 func TestSetConnect(t *testing.T) {
 	mc := SetConnect()
-	err := mc.Ping(nil,nil)
+	err := mc.Ping(nil, nil)
 	if err != nil {
-		fmt.Println("err",err.Error())
+		fmt.Println("err", err.Error())
 		log.Print(err)
 		t.Fail()
-	}else{
+	} else {
 		fmt.Println("ok")
 	}
 

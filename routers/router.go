@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	."github.com/yongliu1992/todo/routers/api"
+	. "github.com/yongliu1992/todo/routers/api"
 )
 
 // InitRouter initialize routing information
@@ -18,4 +18,3 @@ func InitRouter() *gin.Engine {
 	apiV1.POST("todo/:uid", AddTodo)
 	return r
 }
-

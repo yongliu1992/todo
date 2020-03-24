@@ -2,7 +2,7 @@ package util
 
 import (
 	"fmt"
-	jwt  "github.com/dgrijalva/jwt-go"
+	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/yongliu1992/todo/pkg/e"
 	"strings"
@@ -12,10 +12,10 @@ import (
 var jwtSecret []byte
 
 type Claims struct {
-	ID        int    `json:"id"`
-	Username  string `json:"username"`
-	Password  string `json:"password"`
-	RealName  string `json:"realName"`
+	ID       int    `json:"id"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	RealName string `json:"realName"`
 	jwt.StandardClaims
 }
 
@@ -56,7 +56,6 @@ func ParseToken(token string) (*Claims, error) {
 	return nil, err
 }
 
-
 // JWT is jwt middleware
 func JWT() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -85,9 +84,9 @@ func JWT() gin.HandlerFunc {
 
 		if code != e.SUCCESS {
 			c.JSON(200, gin.H{
-				"code":    code,
-				"error":   e.GetMsg(code),
-				"data":    data,
+				"code":  code,
+				"error": e.GetMsg(code),
+				"data":  data,
 			})
 			c.Abort()
 			return

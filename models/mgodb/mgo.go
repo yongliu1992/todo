@@ -17,15 +17,15 @@ type mgo struct {
 }
 
 type Todo struct {
-	Task     string `json:"task" bson:"task"`
-	DueDate  string `json:"due_date" bson:"dueDate"`
-	Labels   string `json:"labels" bson:"labels"`
-	Comments string `json:"comments" bson:"comments"`
-	Uid      int    `json:"uid" bson:"uid"`
+	Task       string `json:"task" bson:"task"`
+	DueDate    string `json:"due_date" bson:"dueDate"`
+	Labels     string `json:"labels" bson:"labels"`
+	Comments   string `json:"comments" bson:"comments"`
+	Uid        int    `json:"uid" bson:"uid"`
 	CreateTime string `json:"create_date" bson:"createDate"`
 	UpdateTime string `json:"updateDate" bson:"updateDate"`
-	Id string `json:"id" bson:"_id,omitempty"`
-	Status int `json:"status" bson:"status"` //1代表已完成
+	Id         string `json:"id" bson:"_id,omitempty"`
+	Status     int    `json:"status" bson:"status"` //1代表已完成
 }
 
 func init() {
@@ -64,7 +64,6 @@ func (m *mgo) InsertOne(value interface{}) (insertResult *mongo.InsertOneResult,
 	return insertResult, nil
 }
 
-
 //_id 删一个的话
 func (m *mgo) Delete(key string, value interface{}) int64 {
 	client := models.DB.Mongo
@@ -102,15 +101,15 @@ func (m *mgo) Update(id interface{}, t Todo) (err error) {
 		primitive.E{Key: "labels", Value: t.Labels},
 		primitive.E{Key: "comments", Value: t.Comments},
 		primitive.E{Key: "uid", Value: t.Uid},
-		primitive.E{Key: "updateDate",Value: t.UpdateTime},
-		primitive.E{Key: "status",Value: t.Status},
+		primitive.E{Key: "updateDate", Value: t.UpdateTime},
+		primitive.E{Key: "status", Value: t.Status},
 	}}}
 	err = collection.FindOneAndUpdate(context.TODO(), filter, set).Decode(&t)
 	return
 }
 
 //查找多个
-func (m *mgo) FindMany(key string, value interface{},sort int ) (data []Todo, err error) {
+func (m *mgo) FindMany(key string, value interface{}, sort int) (data []Todo, err error) {
 
 	client := models.DB.Mongo
 	collection := client.Database(m.database).Collection(m.collection)
@@ -118,9 +117,9 @@ func (m *mgo) FindMany(key string, value interface{},sort int ) (data []Todo, er
 	sorts := bson.D{{"_id", sort}}
 	var cur *mongo.Cursor
 	if key != "" && value != nil {
-		cur, err = collection.Find(context.TODO(), filter,&options.FindOptions{Sort:sorts})
+		cur, err = collection.Find(context.TODO(), filter, &options.FindOptions{Sort: sorts})
 	} else {
-		cur, err = collection.Find(context.TODO(), bson.D{},&options.FindOptions{Sort:sorts})
+		cur, err = collection.Find(context.TODO(), bson.D{}, &options.FindOptions{Sort: sorts})
 	}
 	if cur != nil {
 		for cur.Next(context.Background()) {

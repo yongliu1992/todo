@@ -8,7 +8,7 @@ import (
 )
 
 type Gin struct {
-	C *gin.Context
+	C         *gin.Context
 	formCache url.Values
 	engine    *gin.Engine
 }
@@ -22,14 +22,14 @@ func (g *Gin) Response(errCode int, data interface{}) {
 	return
 }
 
-func (g *Gin) PostInt(pName string ) int  {
+func (g *Gin) PostInt(pName string) int {
 	p := g.C.PostForm(pName)
-	pi,_ := strconv.Atoi(p)
+	pi, _ := strconv.Atoi(p)
 	return pi
 }
 
-func (g *Gin) GetInt(pName string ) int  {
+func (g *Gin) GetInt(pName string) int {
 	p := g.C.Query(pName)
-	pi,_ := strconv.Atoi(p)
+	pi, _ := strconv.Atoi(p)
 	return pi
 }
