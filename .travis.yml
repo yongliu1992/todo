@@ -4,14 +4,20 @@ matrix:
   fast_finish: true
   include:
     - go: 1.14.x
+      env:
+        - TESTTAGS=nomsgpack
+        - MONGO_HOST=127.0.0.1
+        - MONGO_PORT=27017
+        - MONGO_USERNAME=root
+        - MONGO_PASSWORD=root
     - go: master
+      env:
+        - TESTTAGS=nomsgpack
+        - MONGO_HOST=127.0.0.1
+        - MONGO_PORT=27017
+        - MONGO_USERNAME=root
+        - MONGO_PASSWORD=root
 
-env:
-  - TESTTAGS=nomsgpack
-  - MONGO_HOST=127.0.0.1
-  - MONGO_PORT=27017
-  - MONGO_USERNAME=root
-  - MONGO_PASSWORD=root
 git:
   depth: 10
 
