@@ -75,6 +75,7 @@ func TestFindsTodo(t *testing.T) {
 
 //
 func TestDeleteTodo(t *testing.T) {
+	time.Sleep(20 * time.Second)
 	url := "/api/v1/todo/1?sort=1"
 	data := Get(url, router)
 	var res TodoListResponse
@@ -100,12 +101,22 @@ func TestDeleteTodo(t *testing.T) {
 }
 
 func TestUpdateRule(t *testing.T) {
-	time.Sleep(3 * time.Second)
+	var paramU = url.Values{}
+	rand.Seed(time.Now().Unix())
+	paramU.Add("task", "task"+strconv.Itoa(rand.Intn(1000)))
+	paramU.Add("label", "label"+strconv.Itoa(rand.Intn(1000)))
+	paramU.Add("comm", "comm")
+	paramU.Add("status", "1")
+	paramU.Add("endDate", time.Now().Format("2006-01-02 15:04:05"))
+	dataByteA := PostForm("/api/v1/todo/1", param, router)
+	var resA InsertTodoResponseData
+	err := json.Unmarshal(dataByteA, &resA)
+	assert.Nil(t, err, err)
 	//等待数据被添加完成
 	apiUrl := "/api/v1/todo/1?sort=1"
 	data := Get(apiUrl, router)
 	var res TodoListResponse
-	err := json.Unmarshal(data, &res)
+	err = json.Unmarshal(data, &res)
 	assert.Nil(t, err, err)
 	lastIndex := len(res.Data.Data)
 	lastData := res.Data.Data[lastIndex-1]
