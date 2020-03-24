@@ -5,6 +5,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"testing"
+	"time"
 )
 
 func TestMgo_InsertOne(t *testing.T) {
@@ -41,8 +42,8 @@ func TestMgo_FindOne(t *testing.T) {
 }
 
 func TestMgo_Delete(t *testing.T) {
+	time.Sleep(4*time.Second)
 	mgo := NewMgo("hello", "todoTest")
-
 	data := Todo{
 		Task:     "终生学习",
 		DueDate:  "lastDay",
