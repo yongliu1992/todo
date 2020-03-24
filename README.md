@@ -1,5 +1,5 @@
 # todo-list-service
-[![Build Status](https://travis-ci.com/yongliu1992/todo.svg?branch=master)](https://travis-ci.com/yongliu1992/todo)[![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.com/yongliu1992/todo.svg?branch=master)](https://travis-ci.com/yongliu1992/todo) [![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Todo List Service is a GO API service which serves Todo data.
 
