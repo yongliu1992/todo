@@ -50,17 +50,20 @@ type TodoIntResponse struct {
 }
 
 func TestAddTodo(t *testing.T) {
-	var param = url.Values{}
-	rand.Seed(time.Now().Unix())
-	param.Add("task", "task"+strconv.Itoa(rand.Intn(1000)))
-	param.Add("label", "label"+strconv.Itoa(rand.Intn(1000)))
-	param.Add("comm", "comm")
-	param.Add("status", "1")
-	param.Add("endDate", time.Now().Format("2006-01-02 15:04:05"))
-	dataByte := PostForm("/api/v1/todo/1", param, router)
-	var res InsertTodoResponseData
-	err := json.Unmarshal(dataByte, &res)
-	assert.Nil(t, err, err)
+	for i := 0; i < 3; i++ {
+		var param = url.Values{}
+		rand.Seed(time.Now().Unix())
+		param.Add("task", "task"+strconv.Itoa(rand.Intn(1000)))
+		param.Add("label", "label"+strconv.Itoa(rand.Intn(1000)))
+		param.Add("comm", "comm")
+		param.Add("status", "1")
+		param.Add("endDate", time.Now().Format("2006-01-02 15:04:05"))
+		dataByte := PostForm("/api/v1/todo/1", param, router)
+		var res InsertTodoResponseData
+		err := json.Unmarshal(dataByte, &res)
+		assert.Nil(t, err, err)
+	}
+
 }
 
 func TestFindsTodo(t *testing.T) {
@@ -75,7 +78,7 @@ func TestFindsTodo(t *testing.T) {
 
 //
 func TestDeleteTodo(t *testing.T) {
-	time.Sleep(20 * time.Second)
+	time.Sleep(5 * time.Second)
 	url := "/api/v1/todo/1?sort=1"
 	data := Get(url, router)
 	var res TodoListResponse
@@ -108,7 +111,7 @@ func TestUpdateRule(t *testing.T) {
 	paramU.Add("comm", "comm")
 	paramU.Add("status", "1")
 	paramU.Add("endDate", time.Now().Format("2006-01-02 15:04:05"))
-	dataByteA := PostForm("/api/v1/todo/1", param, router)
+	dataByteA := PostForm("/api/v1/todo/1", paramU, router)
 	var resA InsertTodoResponseData
 	err := json.Unmarshal(dataByteA, &resA)
 	assert.Nil(t, err, err)
