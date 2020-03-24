@@ -42,7 +42,7 @@ func TestMgo_FindOne(t *testing.T) {
 }
 
 func TestMgo_Delete(t *testing.T) {
-	time.Sleep(4*time.Second)
+	time.Sleep(4 * time.Second)
 	mgo := NewMgo("hello", "todoTest")
 	data := Todo{
 		Task:     "终生学习",
