@@ -1,5 +1,8 @@
 # todo-list-service
 [![Build Status](https://travis-ci.com/yongliu1992/todo.svg?branch=master)](https://travis-ci.com/yongliu1992/todo)
+
+[![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Todo List Service is a GO API service which serves Todo data.
 
 # Requests 
@@ -19,7 +22,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 curl -X PUT -H "Content-Type: application/json" -d ~~'{~~
   "task": "Fix bug 130320",
-  "duedate": "2020-03-20",
+  "endDate": "2020-03-20",
   "labels": "QA",
   "comments": "Verification"
 }' http://127.0.0.1:8080/todo/{TID}
