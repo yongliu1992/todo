@@ -32,6 +32,7 @@ func SetConnect() *mongo.Client {
 	//uri := "mongodb://root:root@localhost:27017/"
 	uri := "mongodb://%s:%s@%s:%s/mydb_test?gssapiServiceName=mongodb"
 	uri = fmt.Sprintf(uri, MongoUsername, MongoPassword, MongoHost, MongoPort)
+	fmt.Println("url", uri)
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri).SetMaxPoolSize(20)) // 连接池
