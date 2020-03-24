@@ -6,8 +6,8 @@
 [![Join the chat at https://gitter.im/go_do/community](https://badges.gitter.im/go_do/community.svg)](https://gitter.im/go_do/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yongliu1992/todo)](https://goreportcard.com/report/github.com/yongliu1992/todo)
 [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/yongliu1992/todo)](https://www.tickgit.com/browse?repo=github.com/yongliu1992/todo)
-Todo List Service is a GO API service which serves Todo data.
 
+Todo List Service is a GO API service which serves Todo data.
 # Requests 
 
 - Add a Todo task
