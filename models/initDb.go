@@ -8,14 +8,14 @@ import (
 	"os"
 	"time"
 )
-
+/* Database 数据库连接客户端 */
 type Database struct {
 	Mongo *mongo.Client
 }
-
+/* DB 数据库*/
 var DB *Database
 
-//初始化
+//Init 初始化
 func Init() {
 	DB = &Database{
 		Mongo: SetConnect(),
@@ -23,7 +23,7 @@ func Init() {
 
 }
 
-// 连接设置
+// SetConnect 连接设置
 func SetConnect() *mongo.Client {
 	MongoHost := os.Getenv("MONGO_HOST")
 	MongoPort := os.Getenv("MONGO_PORT")

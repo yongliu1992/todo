@@ -21,10 +21,10 @@ type Todo struct {
 	DueDate    string `json:"due_date" bson:"dueDate"`
 	Labels     string `json:"labels" bson:"labels"`
 	Comments   string `json:"comments" bson:"comments"`
-	Uid        int    `json:"uid" bson:"uid"`
+	UID        int    `json:"uid" bson:"uid"`
 	CreateTime string `json:"create_date" bson:"createDate"`
 	UpdateTime string `json:"updateDate" bson:"updateDate"`
-	Id         string `json:"id" bson:"_id,omitempty"`
+	ID         string `json:"id" bson:"_id,omitempty"`
 	Status     int    `json:"status" bson:"status"` //1代表已完成
 }
 
@@ -101,7 +101,7 @@ func (m *mgo) Update(id interface{}, t Todo) (err error) {
 		primitive.E{Key: "dueDate", Value: t.DueDate},
 		primitive.E{Key: "labels", Value: t.Labels},
 		primitive.E{Key: "comments", Value: t.Comments},
-		primitive.E{Key: "uid", Value: t.Uid},
+		primitive.E{Key: "uid", Value: t.UID},
 		primitive.E{Key: "updateDate", Value: t.UpdateTime},
 		primitive.E{Key: "status", Value: t.Status},
 	}}}

@@ -1,7 +1,6 @@
 package util
 
 import (
-	"fmt"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/yongliu1992/todo/pkg/e"
@@ -10,7 +9,7 @@ import (
 )
 
 var jwtSecret []byte
-
+/* Claims data */
 type Claims struct {
 	ID       int    `json:"id"`
 	Username string `json:"username"`
@@ -20,7 +19,7 @@ type Claims struct {
 }
 
 // GenerateToken generate tokens used for auth
-func GenerateToken(id int, username, password string, organId, chatUid int, realName string) (string, error) {
+func GenerateToken(id int, username, password string, organID, chatUID int, realName string) (string, error) {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(12 * time.Hour)
 	claims := Claims{
@@ -34,7 +33,6 @@ func GenerateToken(id int, username, password string, organId, chatUid int, real
 		},
 	}
 
-	fmt.Println("jwtSecret", jwtSecret)
 	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	token, err := tokenClaims.SignedString(jwtSecret)
 
@@ -62,27 +60,27 @@ func JWT() gin.HandlerFunc {
 		var code int
 		var data interface{}
 
-		code = e.SUCCESS
+		code = e.Success
 
 		Authorization := c.GetHeader("Authorization")
 		token := strings.Split(Authorization, " ")
 
 		if Authorization == "" {
-			code = e.ERROR_AUTH_CHECK_TOKEN_FAIL
+			code = e.ErrorAuthCheckTokenFail
 		} else {
 			userInfo, err := ParseToken(token[1])
 			if err != nil {
 				switch err.(*jwt.ValidationError).Errors {
 				case jwt.ValidationErrorExpired:
-					code = e.ERROR_AUTH_CHECK_TOKEN_TIMEOUT
+					code = e.ErrorAuthCheckTokenTimeout
 				default:
-					code = e.ERROR_AUTH_CHECK_TOKEN_FAIL
+					code = e.ErrorAuthCheckTokenFail
 				}
 			}
 			c.Set("userInfo", userInfo)
 		}
 
-		if code != e.SUCCESS {
+		if code != e.Success {
 			c.JSON(200, gin.H{
 				"code":  code,
 				"error": e.GetMsg(code),

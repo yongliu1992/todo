@@ -14,7 +14,7 @@ import (
 
 var dbName = config.MongoDatabase
 var coll = config.MongoCollection
-
+//DeleteTodo  删除
 func DeleteTodo(c *gin.Context) {
 	g := Gin{C: c}
 	uid, _ := strconv.Atoi(c.Param("uid"))
@@ -22,7 +22,7 @@ func DeleteTodo(c *gin.Context) {
 	keyName := c.Query("key")
 	value := c.Query("value")
 	if uid < 1 || keyName == "" || value == "" {
-		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
+		g.Response(e.ErrorParamError, map[string]interface{}{})
 		return
 	}
 	var rows int64
@@ -31,16 +31,16 @@ func DeleteTodo(c *gin.Context) {
 	} else {
 		rows = mgo.DeleteMany(keyName, value)
 	}
-	g.Response(e.SUCCESS, rows)
+	g.Response(e.Success, rows)
 }
-
+//UpdateTodo 修改
 func UpdateTodo(c *gin.Context) {
 	g := Gin{C: c}
 	uid := g.PostInt("uid")
 	id := c.Param("id")
 	mgo := mgodb.NewMgo(dbName, coll)
 	if uid < 1 {
-		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
+		g.Response(e.ErrorParamError, map[string]interface{}{})
 		return
 	}
 	task := c.PostForm("task")
@@ -53,7 +53,7 @@ func UpdateTodo(c *gin.Context) {
 		DueDate:    DueDate,
 		Labels:     Labels,
 		Comments:   Comment,
-		Uid:        uid,
+		UID:        uid,
 		UpdateTime: time.Now().Format("2006-01-02 15:04:05"),
 		Status:     status,
 	}
@@ -61,18 +61,18 @@ func UpdateTodo(c *gin.Context) {
 	err := mgo.Update(tid, data)
 	if err != nil {
 		fmt.Println("error", err)
-		g.Response(e.ERROR, map[string]interface{}{"err": err})
+		g.Response(e.Error, map[string]interface{}{"err": err})
 	} else {
-		g.Response(e.SUCCESS, map[string]interface{}{})
+		g.Response(e.Success, map[string]interface{}{})
 	}
 }
-
+//AddTodo 新增
 func AddTodo(c *gin.Context) {
 	g := Gin{C: c}
 	uid, _ := strconv.Atoi(c.Param("uid"))
 	mgo := mgodb.NewMgo(dbName, coll)
 	if uid < 1 {
-		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
+		g.Response(e.ErrorParamError, map[string]interface{}{})
 		return
 	}
 	task := c.PostForm("task")
@@ -85,19 +85,20 @@ func AddTodo(c *gin.Context) {
 		DueDate:    DueDate,
 		Labels:     Labels,
 		Comments:   Comment,
-		Uid:        uid,
+		UID:        uid,
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 		UpdateTime: "",
 		Status:     status,
 	}
 	dataS, err := mgo.InsertOne(data)
 	if err != nil {
-		g.Response(e.ERROR, "")
+		g.Response(e.Error, "")
 	} else {
-		g.Response(e.SUCCESS, dataS)
+		g.Response(e.Success, dataS)
 	}
 }
 
+//FindsTodo 查找
 /**
  * @api {Get} /todo/index 获取todo
  * @apiName api.GetLists
@@ -113,7 +114,7 @@ func FindsTodo(c *gin.Context) {
 	uid, _ := strconv.Atoi(c.Param("uid"))
 	sort := g.GetInt("sort")
 	if uid < 1 {
-		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
+		g.Response(e.ErrorParamError, map[string]interface{}{})
 		return
 	}
 	mgo := mgodb.NewMgo(dbName, coll)
@@ -123,20 +124,21 @@ func FindsTodo(c *gin.Context) {
 		if err == mongo.ErrNoDocuments {
 			res["data"] = []int{}
 			res["count"] = 0
-			g.Response(e.SUCCESS, res)
+			g.Response(e.Success, res)
 			return
 		}
-		g.Response(e.ERROR, map[string]interface{}{"err": err})
+		g.Response(e.Error, map[string]interface{}{"err": err})
 	} else {
 		res["data"] = dataS
 		res["count"] = len(dataS)
 		if res["count"] == 0 {
 			res["data"] = []int{}
 		}
-		g.Response(e.SUCCESS, res)
+		g.Response(e.Success, res)
 	}
 }
 
+// FindOneTodo todo 详情
 /**
  * @api {Get} /todoOne/:id 获取todo
  * @apiName api.FindOneTodo
@@ -151,7 +153,7 @@ func FindOneTodo(c *gin.Context) {
 	g := Gin{C: c}
 	id := c.Param("id")
 	if id == "" {
-		g.Response(e.ERROR_PARAM_ERROR, map[string]interface{}{})
+		g.Response(e.ErrorParamError, map[string]interface{}{})
 		return
 	}
 	mgo := mgodb.NewMgo(dbName, coll)
@@ -159,12 +161,12 @@ func FindOneTodo(c *gin.Context) {
 	dataS, err := mgo.FindOne(tid)
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
-			g.Response(e.SUCCESS, map[string]interface{}{})
+			g.Response(e.Success, map[string]interface{}{})
 			return
 		}
-		g.Response(e.ERROR, map[string]interface{}{})
+		g.Response(e.Error, map[string]interface{}{})
 	} else {
 
-		g.Response(e.SUCCESS, dataS)
+		g.Response(e.Success, dataS)
 	}
 }

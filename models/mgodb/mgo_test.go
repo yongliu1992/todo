@@ -16,7 +16,7 @@ func TestMgo_InsertOne(t *testing.T) {
 		DueDate:  "lastDay",
 		Labels:   "日拱一卒",
 		Comments: "书中自有颜如玉，书中自有黄金屋，与高尚快乐作伴",
-		Uid:      1,
+		UID:      1,
 	}
 	inResult, err := mgo.InsertOne(data)
 	if err != nil {
@@ -26,7 +26,7 @@ func TestMgo_InsertOne(t *testing.T) {
 	}
 	fmt.Println("insert id", inResult.InsertedID)
 	res, _ := mgo.FindOne(inResult.InsertedID.(primitive.ObjectID))
-	fmt.Println("res", res.Comments, res.Task, res.Labels, res.DueDate, res.Uid)
+	fmt.Println("res", res.Comments, res.Task, res.Labels, res.DueDate, res.UID)
 }
 
 func TestMgo_FindOne(t *testing.T) {
@@ -49,7 +49,7 @@ func TestMgo_Delete(t *testing.T) {
 		DueDate:  "lastDay",
 		Labels:   "日拱一卒",
 		Comments: "书中自有颜如玉，书中自有黄金屋，与高尚快乐作伴",
-		Uid:      1,
+		UID:      1,
 	}
 	inResult, err := mgo.InsertOne(data)
 	if err != nil {
@@ -78,7 +78,7 @@ func TestMgo_Update(t *testing.T) {
 		DueDate:  "lastDay",
 		Labels:   "日拱一卒",
 		Comments: "书中自有颜如玉，书中自有黄金屋，与高尚快乐作伴",
-		Uid:      1,
+		UID:      1,
 	}
 	inResult, err := mgo.InsertOne(data)
 	if err != nil {
@@ -87,7 +87,7 @@ func TestMgo_Update(t *testing.T) {
 		t.Fail()
 	}
 
-	data.Uid = 2
+	data.UID = 2
 	data.Task = "学习至上"
 	data.DueDate = "every day is first day"
 	data.Labels = "滴水穿石"
@@ -109,7 +109,7 @@ func TestMgo_FindMany(t *testing.T) {
 		DueDate:  "lastDay",
 		Labels:   "日拱一卒",
 		Comments: "书中自有颜如玉，书中自有黄金屋，与高尚快乐作伴",
-		Uid:      1,
+		UID:      1,
 	}
 	_, err := mgo.InsertOne(data)
 	if err != nil {
@@ -122,7 +122,7 @@ func TestMgo_FindMany(t *testing.T) {
 		DueDate:  "lastDay",
 		Labels:   "日拱一卒",
 		Comments: "书中自有颜如玉，书中自有黄金屋，与高尚快乐作伴",
-		Uid:      2,
+		UID:      2,
 	}
 	_, err = mgo.InsertOne(data)
 	if err != nil {

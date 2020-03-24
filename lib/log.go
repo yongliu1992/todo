@@ -25,8 +25,8 @@ var sysFields map[string]interface{}
  */
 func GetLogInstance() *logrus.Logger {
 
-	var durationMaxAge time.Duration = 24 * time.Hour
-	var durationRotationTime time.Duration = 24 * time.Hour
+	var durationMaxAge  = 24 * time.Hour
+	var durationRotationTime  = 24 * time.Hour
 	baseLogPath := path.Join(con.LogPath, con.LogFileName)
 	writer, _ := rotatelogs.New(
 		baseLogPath+".%Y%m%d%H%M",

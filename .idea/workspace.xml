@@ -20,13 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62e55cf5-853f-41a4-a6a4-4f325188cf47" name="Default Changelist" comment="调整main">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/lib/log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/initDb.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/initDb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/mgodb/mgo.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mgodb/mgo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/mgodb/mgo_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mgodb/mgo_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/api/v1/todo.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/api/v1/todo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/e/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/e/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/msg.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/util/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/api/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/api/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/api/todoContro.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/api/todoContro.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/todoContro_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/todoContro_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +82,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -83,15 +91,40 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="goland.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routers/api" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routers" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/config" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build github.com/yongliu1992/todo">
+  <component name="RunManager" selected="Go Test.TestFindsTodo in github.com/yongliu1992/todo/routers">
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="GoTestRunConfiguration">
+      <module name="todo" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/yongliu1992/todo" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="todo" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="github.com/yongliu1992/todo" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build github.com/yongliu1992/todo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="todo" />
       <working_directory value="$PROJECT_DIR$" />
@@ -101,57 +134,57 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMgo_Delete in github.com/yongliu1992/todo/models/mgodb" type="GoTestRunConfiguration" factoryName="GoTestRunConfiguration" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAddTodo in github.com/yongliu1992/todo/routers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="todo" />
-      <working_directory value="$PROJECT_DIR$/models/mgodb" />
+      <working_directory value="$PROJECT_DIR$/routers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/yongliu1992/todo/models/mgodb" />
+      <package value="github.com/yongliu1992/todo/routers" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestMgo_Delete$" />
+      <pattern value="^TestAddTodo$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMgo_FindOne in github.com/yongliu1992/todo/models/mgodb" type="GoTestRunConfiguration" factoryName="GoTestRunConfiguration" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDeleteTodo in github.com/yongliu1992/todo/routers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="todo" />
-      <working_directory value="$PROJECT_DIR$/models/mgodb" />
+      <working_directory value="$PROJECT_DIR$/routers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/yongliu1992/todo/models/mgodb" />
+      <package value="github.com/yongliu1992/todo/routers" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestMgo_FindOne$" />
+      <pattern value="^TestDeleteTodo$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMgo_InsertOne in github.com/yongliu1992/todo/models/mgodb" type="GoTestRunConfiguration" factoryName="GoTestRunConfiguration" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFindsTodo in github.com/yongliu1992/todo/routers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="todo" />
-      <working_directory value="$PROJECT_DIR$/models/mgodb" />
+      <working_directory value="$PROJECT_DIR$/routers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/yongliu1992/todo/models/mgodb" />
+      <package value="github.com/yongliu1992/todo/routers" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestMgo_InsertOne$" />
+      <pattern value="^TestFindsTodo$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSetConnect in github.com/yongliu1992/todo/models" type="GoTestRunConfiguration" factoryName="GoTestRunConfiguration" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUpdateRule in github.com/yongliu1992/todo/routers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="todo" />
-      <working_directory value="$PROJECT_DIR$/models" />
+      <working_directory value="$PROJECT_DIR$/routers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/yongliu1992/todo/models" />
+      <package value="github.com/yongliu1992/todo/routers" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestSetConnect$" />
+      <pattern value="^TestUpdateRule$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestFindsTodo in github.com/yongliu1992/todo/routers" />
+        <item itemvalue="Go Test.TestUpdateRule in github.com/yongliu1992/todo/routers" />
+        <item itemvalue="Go Test.TestDeleteTodo in github.com/yongliu1992/todo/routers" />
+        <item itemvalue="Go Test.TestAddTodo in github.com/yongliu1992/todo/routers" />
         <item itemvalue="Go Build.go build github.com/yongliu1992/todo" />
-        <item itemvalue="Go Test.TestMgo_Delete in github.com/yongliu1992/todo/models/mgodb" />
-        <item itemvalue="Go Test.TestMgo_InsertOne in github.com/yongliu1992/todo/models/mgodb" />
-        <item itemvalue="Go Test.TestMgo_FindOne in github.com/yongliu1992/todo/models/mgodb" />
-        <item itemvalue="Go Test.TestSetConnect in github.com/yongliu1992/todo/models" />
       </list>
     </recent_temporary>
   </component>
@@ -224,63 +257,97 @@
         <entry key="2" value="TOOL_WINDOW" />
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="调整main" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整main" />
+    <MESSAGE value="增加issue.json" />
+    <MESSAGE value="调整init db" />
+    <MESSAGE value="调整travis" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整travis" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.io" />
+      </map>
+    </environment>
     <proxy>https://goproxy.io</proxy>
   </component>
   <component name="WindowStateProjectService">
+    <state x="846" y="512" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585088766461">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="846" y="512" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1585088766461" />
     <state x="905" y="310" key="#go_build_yongliu/todo" timestamp="1584252666095">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="905" y="310" key="#go_build_yongliu/todo/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584252666095" />
-    <state x="100" y="78" width="2360" height="1261" key="DiffContextDialog" timestamp="1584275466564">
+    <state x="509" y="49" key="CommitChangelistDialog2" timestamp="1585066031679">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="382" y="37" key="CommitChangelistDialog2/0.0.1920.1080/1920.0.1680.1050@0.0.1920.1080" timestamp="1585023138879" />
+    <state x="509" y="49" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1585066031679" />
+    <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog" timestamp="1585067401611">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="100" y="78" width="2360" height="1261" key="DiffContextDialog/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584275466564" />
-    <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1584175809759" />
+    <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585067401611" />
     <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584256714555" />
-    <state width="2508" height="410" key="GridCell.Tab.0.bottom" timestamp="1584283389688">
+    <state x="100" y="100" width="2360" height="1240" key="DiffContextDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1585065414924" />
+    <state width="2508" height="446" key="GridCell.Tab.0.bottom" timestamp="1585049825982">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1868" height="446" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1680.1050@0.0.1920.1080" timestamp="1584959430755" />
     <state width="2508" height="410" key="GridCell.Tab.0.bottom/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584283389688" />
+    <state width="2508" height="446" key="GridCell.Tab.0.bottom/0.0.2560.1440@0.0.2560.1440" timestamp="1585049825982" />
+    <state width="1868" height="217" key="GridCell.Tab.0.bottom/0.23.1920.1057/1920.0.1680.1050@0.23.1920.1057" timestamp="1584958543300" />
     <state width="2508" height="410" key="GridCell.Tab.0.bottom/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584282880558" />
-    <state width="2508" height="410" key="GridCell.Tab.0.center" timestamp="1584283389685">
+    <state width="2508" height="446" key="GridCell.Tab.0.center" timestamp="1585049825979">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1868" height="446" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1680.1050@0.0.1920.1080" timestamp="1584959430752" />
     <state width="2508" height="410" key="GridCell.Tab.0.center/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584283389685" />
+    <state width="2508" height="446" key="GridCell.Tab.0.center/0.0.2560.1440@0.0.2560.1440" timestamp="1585049825979" />
+    <state width="1868" height="217" key="GridCell.Tab.0.center/0.23.1920.1057/1920.0.1680.1050@0.23.1920.1057" timestamp="1584958543296" />
     <state width="2508" height="410" key="GridCell.Tab.0.center/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584282880555" />
-    <state width="2508" height="410" key="GridCell.Tab.0.left" timestamp="1584283389684">
+    <state width="2508" height="446" key="GridCell.Tab.0.left" timestamp="1585049825978">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1868" height="446" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1680.1050@0.0.1920.1080" timestamp="1584959430750" />
     <state width="2508" height="410" key="GridCell.Tab.0.left/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584283389684" />
+    <state width="2508" height="446" key="GridCell.Tab.0.left/0.0.2560.1440@0.0.2560.1440" timestamp="1585049825978" />
+    <state width="1868" height="217" key="GridCell.Tab.0.left/0.23.1920.1057/1920.0.1680.1050@0.23.1920.1057" timestamp="1584958543294" />
     <state width="2508" height="410" key="GridCell.Tab.0.left/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584282880554" />
-    <state width="2508" height="410" key="GridCell.Tab.0.right" timestamp="1584283389686">
+    <state width="2508" height="446" key="GridCell.Tab.0.right" timestamp="1585049825981">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state width="1868" height="446" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1680.1050@0.0.1920.1080" timestamp="1584959430753" />
     <state width="2508" height="410" key="GridCell.Tab.0.right/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584283389686" />
+    <state width="2508" height="446" key="GridCell.Tab.0.right/0.0.2560.1440@0.0.2560.1440" timestamp="1585049825981" />
+    <state width="1868" height="217" key="GridCell.Tab.0.right/0.23.1920.1057/1920.0.1680.1050@0.23.1920.1057" timestamp="1584958543298" />
     <state width="2508" height="410" key="GridCell.Tab.0.right/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584282880557" />
-    <state x="694" y="271" key="SettingsEditor" timestamp="1584253701746">
+    <state x="694" y="271" key="SettingsEditor" timestamp="1585053157250">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="694" y="271" key="SettingsEditor/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584253701746" />
-    <state x="694" y="271" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1584187289805" />
-    <state x="100" y="100" width="2360" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584272607059">
-      <screen x="0" y="23" width="2560" height="1417" />
+    <state x="694" y="271" key="SettingsEditor/0.0.2560.1440@0.0.2560.1440" timestamp="1585053157250" />
+    <state x="100" y="49" width="2360" height="1289" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585059580071">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
+    <state x="100" y="49" width="2360" height="1289" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1585059580071" />
+    <state x="75" y="59" width="1770" height="946" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1920.1057/1920.0.1680.1050@0.23.1920.1057" timestamp="1584957723989" />
     <state x="100" y="100" width="2360" height="1240" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.2560.1417/2560.0.1680.1050@0.23.2560.1417" timestamp="1584272607059" />
     <state x="833" y="259" width="894" height="921" key="find.popup" timestamp="1584277880763">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="833" y="259" width="894" height="921" key="find.popup/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584277880763" />
     <state x="833" y="259" width="894" height="921" key="find.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1584174397138" />
-    <state x="844" y="324" width="872" height="1032" key="search.everywhere.popup" timestamp="1584259924262">
+    <state x="844" y="324" width="872" height="1032" key="search.everywhere.popup" timestamp="1585064973109">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="844" y="324" width="872" height="1032" key="search.everywhere.popup/0.0.2560.1440/2560.0.1680.1050@0.0.2560.1440" timestamp="1584259924262" />
+    <state x="844" y="324" width="872" height="1032" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1585064973109" />
   </component>
 </project>

@@ -123,7 +123,7 @@ func TestDeleteTodo(t *testing.T) {
 //	param.Add("comm", "comm")
 //	param.Add("status", "1")
 //	param.Add("endDate", time.Now().Format("2006-01-02 15:04:05"))
-//	param.Add("uid", strconv.Itoa(lastData.Uid))
+//	param.Add("uid", strconv.Itoa(lastData.UID))
 //	PutForm("/api/v1/todo/"+lastData.Id, param, router)
 //	dataByte := Get("/api/v1/todoOne/"+lastData.Id, router)
 //	fmt.Println(string(dataByte))

@@ -1,26 +1,25 @@
 package e
-
+/* 存放信息映射*/
 var MsgFlags = map[int]string{
-	SUCCESS:                        "成功",
-	ERROR:                          "fail",
-	INVALID_PARAMS:                 "请求参数错误",
-	ERROR_EXIST_RECORD:             "记录已存在,请勿重复添加",
-	ERROR_NOT_EXIST:                "记录不存在",
-	ERROR_NEED_PARAM:               "缺少参数",
-	ERROR_AUTH_CHECK_TOKEN_FAIL:    "Token鉴权失败",
-	ERROR_AUTH_CHECK_TOKEN_TIMEOUT: "Token已超时",
-	ERROR_AUTH_TOKEN:               "Token生成失败",
-	ERROR_AUTH:                     "Token错误",
-	ERROR_PARAM_QUESTION_ERROR:     "问题状态不对",
-	ERROR_PARAM_ERROR:              "参数错误",
-	ErrorRecordNotFound:            "记录找不到",
+	Success:                    "成功",
+	Error:                      "fail",
+	InvalidParams:              "请求参数错误",
+	ErrorExistRecord:           "记录已存在,请勿重复添加",
+	ErrorNotExist:              "记录不存在",
+	ENeedParam:                 "缺少参数",
+	ErrorAuthCheckTokenFail:    "Token鉴权失败",
+	ErrorAuthCheckTokenTimeout: "Token已超时",
+	ErrorAuthToken:             "Token生成失败",
+	ErrorAuth:                  "Token错误",
+	ErrorParamError:            "参数错误",
+	ErrorRecordNotFound:        "记录找不到",
 }
-
+/* 获取返回值 */
 func GetMsg(code int) string {
 	msg, ok := MsgFlags[code]
 	if ok {
 		return msg
 	}
 
-	return MsgFlags[ERROR]
+	return MsgFlags[Error]
 }

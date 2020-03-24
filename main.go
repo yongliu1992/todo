@@ -9,11 +9,11 @@ import (
 	"github.com/yongliu1992/todo/routers"
 )
 
-var _version_ = ""
-var _branch_ = ""
-var _commitId_ = ""
-var _userName_ = ""
-var _buildTime_ = ""
+var _version = ""
+var _branch = ""
+var _commitID = ""
+var _userName = ""
+var _buildTime = ""
 
 var logger = lib.GetLogInstance()
 
@@ -24,7 +24,7 @@ func main() {
 	flag.Parse()
 
 	if version {
-		fmt.Printf("Version: %s, Branch: %s, Build: %s, User: %s, Build time: %s\n", _version_, _branch_, _commitId_, _userName_, _buildTime_)
+		fmt.Printf("Version: %s, Branch: %s, Build: %s, User: %s, Build time: %s\n", _version, _branch, _commitID, _userName, _buildTime)
 	} else {
 		util.Setup()
 		logger.SetLevel(logrus.ErrorLevel)
