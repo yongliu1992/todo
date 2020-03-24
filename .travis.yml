@@ -8,15 +8,15 @@ matrix:
         - TESTTAGS=nomsgpack
         - MONGO_HOST=127.0.0.1
         - MONGO_PORT=27017
-        - MONGO_USERNAME=travis
-        - MONGO_PASSWORD=test
+        - MONGO_USERNAME=root
+        - MONGO_PASSWORD=root
     - go: master
       env:
         - TESTTAGS=nomsgpack
         - MONGO_HOST=127.0.0.1
         - MONGO_PORT=27017
-        - MONGO_USERNAME=travis
-        - MONGO_PASSWORD=test
+        - MONGO_USERNAME=root
+        - MONGO_PASSWORD=root
 
 git:
   depth: 10
@@ -35,8 +35,8 @@ install:
 go_import_path: github.com/yongliu1992/todo
 
 before_script:
-  - sleep 20
-  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+  - sleep 15
+  - mongo mydb_test --eval 'db.createUser({user:"root",pwd:"root",roles:["readWrite"]});'
 
 script:
   - make vet
