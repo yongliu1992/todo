@@ -1,7 +1,0 @@
-jobs:
-    include:
-      - stage: build
-        script:
-        - git clone https://github.com/yongliu1992/todo.git
-        - cd todo
-        - docker build -t yongliu1992/todo:latest
