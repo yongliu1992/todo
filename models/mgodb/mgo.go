@@ -68,7 +68,7 @@ func (m *mgo) InsertOne(value interface{}) (insertResult *mongo.InsertOneResult,
 func (m *mgo) Delete(key string, value interface{}) int64 {
 	client := models.DB.Mongo
 	collection := client.Database(m.database).Collection(m.collection)
-	filter := bson.D{{key, value}}
+	filter := bson.D{primitive.E{Key: key, Value: value}}
 	count, err := collection.DeleteOne(context.TODO(), filter, nil)
 	if err != nil {
 		fmt.Println(err)
@@ -81,7 +81,7 @@ func (m *mgo) Delete(key string, value interface{}) int64 {
 func (m *mgo) DeleteMany(key string, value interface{}) int64 {
 	client := models.DB.Mongo
 	collection := client.Database(m.database).Collection(m.collection)
-	filter := bson.D{{key, value}}
+	filter := bson.D{primitive.E{Key: key, Value: value}}
 
 	count, err := collection.DeleteMany(context.TODO(), filter)
 	if err != nil {
@@ -113,8 +113,8 @@ func (m *mgo) FindMany(key string, value interface{}, sort int) (data []Todo, er
 
 	client := models.DB.Mongo
 	collection := client.Database(m.database).Collection(m.collection)
-	filter := bson.D{{key, value}}
-	sorts := bson.D{{"_id", sort}}
+	filter := bson.D{primitive.E{Key: key, Value: value}}
+	sorts := bson.D{primitive.E{Key: "_id", Value: sort}}
 	var cur *mongo.Cursor
 	if key != "" && value != nil {
 		cur, err = collection.Find(context.TODO(), filter, &options.FindOptions{Sort: sorts})

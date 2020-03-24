@@ -1,5 +1,5 @@
 # todo-list-service
-
+[![Build Status](https://travis-ci.com/yongliu1992/todo.svg?branch=master)](https://travis-ci.com/yongliu1992/todo)
 Todo List Service is a GO API service which serves Todo data.
 
 # Requests 
