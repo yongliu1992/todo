@@ -23,7 +23,6 @@ git:
 
 before_install:
   - if [[ "${GO111MODULE}" = "on" ]]; then mkdir "${HOME}/go"; export GOPATH="${HOME}/go"; fi
-  - mongo mydb_test --eval 'db.createUser({user:"root",pwd:"root",roles:["readWrite"]});'
 services:
   - docker
   - mongodb
@@ -37,7 +36,7 @@ go_import_path: github.com/yongliu1992/todo
 
 before_script:
   - sleep 20
-  - mongo mydb_test --eval 'db.createUser({user:"root",pwd:"root",roles:["readWrite"]});'
+  - mongo mydb_test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
 
 script:
   - make vet
