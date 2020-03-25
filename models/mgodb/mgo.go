@@ -16,6 +16,7 @@ type mgo struct {
 	collection string
 }
 
+//Todo 返回结构体
 type Todo struct {
 	Task       string `json:"task" bson:"task"`
 	DueDate    string `json:"due_date" bson:"dueDate"`
@@ -35,6 +36,7 @@ func init() {
 	}
 }
 
+//NewMgo 构造器模式 返回对象
 func NewMgo(database, collection string) *mgo {
 	return &mgo{
 		database,

@@ -8,11 +8,13 @@ import (
 	"os"
 	"time"
 )
-/* Database 数据库连接客户端 */
+
+// Database 数据库连接客户端
 type Database struct {
 	Mongo *mongo.Client
 }
-/* DB 数据库*/
+
+// DB 数据库
 var DB *Database
 
 //Init 初始化

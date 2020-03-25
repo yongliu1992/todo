@@ -1,5 +1,6 @@
 package e
-/* 存放信息映射*/
+
+// MsgFlags 存放映射关系map
 var MsgFlags = map[int]string{
 	Success:                    "成功",
 	Error:                      "fail",
@@ -14,7 +15,8 @@ var MsgFlags = map[int]string{
 	ErrorParamError:            "参数错误",
 	ErrorRecordNotFound:        "记录找不到",
 }
-/* 获取返回值 */
+
+// GetMsg 获取返回值
 func GetMsg(code int) string {
 	msg, ok := MsgFlags[code]
 	if ok {

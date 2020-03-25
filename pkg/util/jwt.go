@@ -9,7 +9,8 @@ import (
 )
 
 var jwtSecret []byte
-/* Claims data */
+
+// Claims data
 type Claims struct {
 	ID       int    `json:"id"`
 	Username string `json:"username"`

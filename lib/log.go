@@ -11,22 +11,23 @@ import (
 	"time"
 )
 
+//Log 日志对象
 var Log *logrus.Logger
 
 var once sync.Once
 var lock *sync.Mutex = &sync.Mutex{}
 var sysFields map[string]interface{}
 
+// GetLogInstance 单例生成日志实例
 /*
- * 单例生成日志实例
  * DebugLevel<InfoLevel<WarnLevel<ErrorLevel
  * 低级别显示比自己高级别的日志
  * 返回实例化对象
  */
 func GetLogInstance() *logrus.Logger {
 
-	var durationMaxAge  = 24 * time.Hour
-	var durationRotationTime  = 24 * time.Hour
+	var durationMaxAge = 24 * time.Hour
+	var durationRotationTime = 24 * time.Hour
 	baseLogPath := path.Join(con.LogPath, con.LogFileName)
 	writer, _ := rotatelogs.New(
 		baseLogPath+".%Y%m%d%H%M",

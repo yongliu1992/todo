@@ -1,8 +1,10 @@
 package e
 
+/* 状态码定义 */
 const (
-	/* 状态码定义 */
-	Success       = 200
+	//Success 成功
+	Success = 200
+	//Error 失败
 	Error         = 500
 	InvalidParams = 400
 
