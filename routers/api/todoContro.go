@@ -14,6 +14,7 @@ import (
 
 var dbName = config.MongoDatabase
 var coll = config.MongoCollection
+
 //DeleteTodo  删除
 func DeleteTodo(c *gin.Context) {
 	g := Gin{C: c}
@@ -33,6 +34,7 @@ func DeleteTodo(c *gin.Context) {
 	}
 	g.Response(e.Success, rows)
 }
+
 //UpdateTodo 修改
 func UpdateTodo(c *gin.Context) {
 	g := Gin{C: c}
@@ -66,6 +68,7 @@ func UpdateTodo(c *gin.Context) {
 		g.Response(e.Success, map[string]interface{}{})
 	}
 }
+
 //AddTodo 新增
 func AddTodo(c *gin.Context) {
 	g := Gin{C: c}
