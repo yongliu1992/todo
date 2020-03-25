@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"strconv"
 )
+
 // Gin 包装gin
 type Gin struct {
 	C         *gin.Context
